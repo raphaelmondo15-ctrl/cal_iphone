@@ -29,14 +29,11 @@
 
 #inputtext {
   grid-column: span 4;
-  /* height: 150px;
-  width: 100%; */
   border-radius: 20px;
   border: none;
   background-color: black;
   color: white;
   text-align: end;
-  /* box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff; */
   padding: 16px;
   font-size: large;
 }
@@ -48,13 +45,11 @@ button {
   border: none;
   color: white;
   background-color: #333;
-  /* box-shadow: inset 13px 13px 20px #cbced1, inset -13px -13px 20px #fff; */
   font-size: large;
 }
 
 button.signe {
   background-color: #ff9500;
-  /* box-shadow: inset 13px 13px 20px #cbced1, inset -13px -13px 20px #fff; */
 }
 
 .button-zero {
