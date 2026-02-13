@@ -1,6 +1,6 @@
-let result=document.getElementById('inputtext');
+const result = document.getElementById('inputtext')
 const answer = document.getElementById('output');
-let appendValue = (number) => {
+const appendValue = (number) => {
     result.value += number;
 }
 

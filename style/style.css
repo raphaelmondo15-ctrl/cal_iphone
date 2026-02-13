@@ -71,7 +71,7 @@ button.signe {
 }
 
 button:active {
-  box-shadow: inset 0px 0px 5px #000;
+  box-shadow: inset 0 0 5px #000;
 }
 
 @media (max-width: 400px) {
