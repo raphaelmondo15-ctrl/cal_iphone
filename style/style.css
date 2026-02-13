@@ -26,6 +26,17 @@
   gap: 10px;
 }
 
+#output {
+  grid-column: span 4;
+  border-radius: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  text-align: end;
+  padding: 16px;
+  font-size: large;
+}
+
 #inputtext {
   grid-column: span 4;
   border-radius: 20px;
@@ -57,4 +68,14 @@ button.signe {
   text-align: start;
   padding: 16px;
   font-size: large;
+}
+
+button:active {
+  box-shadow: inset 0px 0px 5px #000;
+}
+
+@media (max-width: 400px) {
+  .cal {
+    width: 100%;
+  }
 }
