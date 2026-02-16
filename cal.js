@@ -1,7 +1,7 @@
 const result = document.getElementById('inputtext')
 const answer = document.getElementById('output')
  function appendValue (number) {
-    result.value += number
+    result.value += number;
 }
 
 const Result = () => {
