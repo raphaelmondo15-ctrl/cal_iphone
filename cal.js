@@ -1,22 +1,22 @@
 const result = document.getElementById('inputtext')
 const answer = document.getElementById('output')
  function appendValue (number) {
-    result.value += number;
+    result.value += number
 }
 
-let Result = () => {
+const Result = () => {
     try {
-        answer.innerText = eval(result.value);
-    } catch (error) {
-      alert("error");
-    }
+    answer.innerText = eval(result.value)
+  } catch (error) {
+    alert('error')
+  }
 }
 
-let deleteLast= () => {
-    result.value = result.value.slice(0, -1);
+const deleteLast = () => {
+  result.value = result.value.slice(0, -1)
 }
 
-function clr() {
-    result.value = '';
-    answer.innerText = '0';
+function clr () {
+  result.value = ''
+  answer.innerText = '0'
 }
