@@ -46,4 +46,4 @@ function clr () {
   answer.innerText = '0'
 }
 
-clr()
+clr();
