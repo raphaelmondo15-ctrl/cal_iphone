@@ -1,3 +1,5 @@
+/* global math */
+
 const result = document.getElementById('inputtext')
 const answer = document.getElementById('output')
 
@@ -46,4 +48,4 @@ function clr () {
   answer.innerText = '0'
 }
 
-clr();
+clr()
