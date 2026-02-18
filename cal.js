@@ -1,11 +1,13 @@
 const result = document.getElementById('inputtext')
 const answer = document.getElementById('output')
 
-function appendValue(number) {
+function appendValue (number) {
   result.value += number
 }
 
-function calculateExpression(expression) {
+appendValue()
+
+function calculateExpression (expression) {
   // Allow only numbers and math operators
   const validPattern = /^[0-9+\-*/%.() ]+$/
 
@@ -20,7 +22,7 @@ function calculateExpression(expression) {
   return Function('"use strict"; return (' + safeExpression + ')')()
 }
 
-calculateExpression ()
+calculateExpression()
 
 function Result () {
   try {
