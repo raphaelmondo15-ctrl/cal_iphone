@@ -20,20 +20,26 @@ function calculateExpression(expression) {
   return Function('"use strict"; return (' + safeExpression + ')')()
 }
 
-function Result() {
+function Result () {
   try {
-    const output = calculateExpression(result.value)
+    const output = math.evaluate(result.value)
     answer.innerText = output
   } catch (error) {
     answer.innerText = 'Error'
   }
 }
 
-function deleteLast() {
+Result();
+
+function deleteLast () {
   result.value = result.value.slice(0, -1)
 }
 
-function clr() {
+deleteLast();
+
+function clr () {
   result.value = ''
   answer.innerText = '0'
 }
+
+clr();
