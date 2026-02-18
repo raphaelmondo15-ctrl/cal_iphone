@@ -24,7 +24,7 @@ appendValue()
 //   return Function('"use strict"; return (' + safeExpression + ')')()
 // }
 
-calculateExpression()
+// calculateExpression()
 
 function Result () {
   try {
