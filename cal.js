@@ -20,6 +20,8 @@ function calculateExpression(expression) {
   return Function('"use strict"; return (' + safeExpression + ')')()
 }
 
+calculateExpression ()
+
 function Result () {
   try {
     const output = math.evaluate(result.value)
@@ -29,17 +31,17 @@ function Result () {
   }
 }
 
-Result();
+Result()
 
 function deleteLast () {
   result.value = result.value.slice(0, -1)
 }
 
-deleteLast();
+deleteLast()
 
 function clr () {
   result.value = ''
   answer.innerText = '0'
 }
 
-clr();
+clr()
