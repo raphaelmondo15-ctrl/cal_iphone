@@ -9,20 +9,20 @@ function appendValue (number) {
 
 appendValue()
 
-function calculateExpression (expression) {
-  // Allow only numbers and math operators
-  const validPattern = /^[0-9+\-*/%.() ]+$/
+// function calculateExpression (expression) {
+//   // Allow only numbers and math operators
+//   const validPattern = /^[0-9+\-*/%.() ]+$/
 
-  if (!validPattern.test(expression)) {
-    throw new Error('Invalid characters')
-  }
+//   if (!validPattern.test(expression)) {
+//     throw new Error('Invalid characters')
+//   }
 
-  // Replace % with /100
-  const safeExpression = expression.replace(/%/g, '/100')
+//   // Replace % with /100
+//   const safeExpression = expression.replace(/%/g, '/100')
 
-  // Evaluate safely after validation
-  return Function('"use strict"; return (' + safeExpression + ')')()
-}
+//   // Evaluate safely after validation
+//   return Function('"use strict"; return (' + safeExpression + ')')()
+// }
 
 calculateExpression()
 
