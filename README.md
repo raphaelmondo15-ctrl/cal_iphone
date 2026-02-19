@@ -34,4 +34,4 @@ calculator-app/
 
 ###### How to run the calculator
 
-git clone https://github.com/your-username/calculator-app.git
+git clone [https://github.com/raphaelmondo15-ctrl/cal_iphone/pull/2]
