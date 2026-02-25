@@ -3,48 +3,52 @@ const answer = document.getElementById('output')
 
 /* ================= UI FUNCTIONS ================= */
 
-function appendValue(value) {
+function appendValue (value) {
   const lastChar = result.value.slice(-1)
 
   if ('+-*/'.includes(value)) {
-    if (result.value === "" && value !== "-") return
-    if ('+-*/'.includes(lastChar))  if ('+-*/'.includes(lastChar)) {
-      if (value === "-") return result.value += value
-      return
-    }
+
+  if (result.value === '' && value !== '-') {
+    return;
   }
 
+  if ('+-*/'.includes(lastChar) && value !== '-') {
+    return;
+  }
+
+  result.value += value;
+  return;
+}
+
   if (value === '.') {
-    const parts = result.value.split(/[\+\-\*\/]/)
+  const parts = result.value.split(/[+\-*/]/);
     if (parts[parts.length - 1].includes('.')) return
   }
 
   result.value += value
 }
-
-function deleteLast() { 
+function deleteLast () { 
   result.value = result.value.slice(0, -1)
 }
 
-function clr() {
+function clr () {
   result.value = ''
   answer.innerText = '0'
 }
 
 /* ================= TOKENIZER ================= */
 
-function tokenize(expression) {
+function tokenize (expression) {
   const tokens = []
   let number = ''
-  
   for (let i = 0; i < expression.length; i++) {
     let char = expression[i]
 
     if (!isNaN(char) || char === '.') {
       number += char
-    }  else if (char === '-' && (i === 0 || '+-*/('.includes(expression[i - 1]))) {
+    } else if (char === '-' && (i === 0 || '+-*/('.includes(expression[i - 1]))) {
       number += char   // unary minus
-    }  else if ('+-*/()'.includes(char)) {
+    } else if ('+-*/()'.includes(char)) {
       if (number !== '') {
         tokens.push(number)
         number = ''
@@ -70,12 +74,11 @@ function infixToPostfix (tokens) {
     '*': 2,
     '/': 2
   }
-
-  for (let token of tokens) {
+for (let token of tokens) {
 
     if (!isNaN(token)) {
       output.push(token)
-    }  else if ('+-*/'.includes(token)) {
+    } else if ('+-*/'.includes(token)) {
       while (
         stack.length &&
         '+-*/'.includes(stack[stack.length - 1]) &&
@@ -139,7 +142,6 @@ function evaluatePostfix (postfix) {
 /* ================= MAIN CALCULATE ================= */
 
 function calculate (expression) {
-
   if (!expression) throw new Error('Empty')
 
   expression = expression.replace(/\s+/g, '')
