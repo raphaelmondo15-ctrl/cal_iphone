@@ -75,7 +75,6 @@ function infixToPostfix (tokens) {
     '/': 2
   }
 for (let token of tokens) {
-
     if (!isNaN(token)) {
       output.push(token)
     } else if ('+-*/'.includes(token)) {
