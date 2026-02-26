@@ -2,32 +2,29 @@ const result = document.getElementById('inputtext')
 const answer = document.getElementById('output')
 
 /* ================= UI FUNCTIONS ================= */
+function appendValue(value) {
+  const operators = '+-*/';
+  const lastChar = result.value.slice(-1);
 
-function appendValue (value) {
-  const lastChar = result.value.slice(-1)
 
-  if ('+-*/'.includes(value)) {
-
-  if (result.value === '' && value !== '-') {
+  if (operators.includes(value)) {
+    if (result.value === '' && value !== '-') return;
+    if (operators.includes(lastChar) && value !== '-') return;
+    result.value += value;
     return;
   }
 
-  if ('+-*/'.includes(lastChar) && value !== '-') {
-    return;
-  }
-
-  result.value += value;
-  return;
-}
-
+  
   if (value === '.') {
-  const parts = result.value.split(/[+\-*/]/);
-    if (parts[parts.length - 1].includes('.')) return
+    const parts = result.value.split(/[+\-*/]/);
+    const lastPart = parts[parts.length - 1];
+    if (lastPart.includes('.')) return; 
   }
 
-  result.value += value
+  
+  result.value += value;
 }
-function deleteLast () { 
+function deleteLast () {
   result.value = result.value.slice(0, -1)
 }
 
@@ -42,12 +39,12 @@ function tokenize (expression) {
   const tokens = []
   let number = ''
   for (let i = 0; i < expression.length; i++) {
-    let char = expression[i]
+    const char = expression[i]
 
     if (!isNaN(char) || char === '.') {
       number += char
     } else if (char === '-' && (i === 0 || '+-*/('.includes(expression[i - 1]))) {
-      number += char   // unary minus
+      number += char
     } else if ('+-*/()'.includes(char)) {
       if (number !== '') {
         tokens.push(number)
@@ -74,7 +71,7 @@ function infixToPostfix (tokens) {
     '*': 2,
     '/': 2
   }
-for (let token of tokens) {
+for (const token of tokens) {
     if (!isNaN(token)) {
       output.push(token)
     } else if ('+-*/'.includes(token)) {
@@ -108,7 +105,7 @@ for (let token of tokens) {
 function evaluatePostfix (postfix) {
   const stack = []
 
-  for (let token of postfix) {
+  for (const token of postfix) {
     if (!isNaN(token)) {
       stack.push(parseFloat(token))
     } else {
@@ -158,7 +155,7 @@ function calculate (expression) {
 
 /* ================= RESULT ================= */
 
-function Result () {
+function showResult () {
   try {
     const output = calculate(result.value)
     answer.innerText = output
@@ -166,3 +163,6 @@ function Result () {
     answer.innerText = 'Error'
   }
 }
+document.getElementById('equals').addEventListener('click', showResult)
+document.getElementById('clear').addEventListener('click', clr)
+document.getElementById('delete').addEventListener('click', deleteLast)

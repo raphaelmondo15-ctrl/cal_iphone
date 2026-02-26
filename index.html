@@ -11,8 +11,8 @@
         <div class="cal">
         <p id="output"></p>
         <input type="text" id="inputtext" placeholder="0">
-        <button onclick="clr()">C</button>
-        <button onclick="deleteLast()">AC</button>
+        <button id="clear" onclick="clr()">C</button>
+        <button id="delete" onclick="deleteLast()">AC</button>
         <button onclick="appendValue('%')">%</button>
         <button  class="signe" onclick="appendValue('/')">/</button>
         <button onclick="appendValue('7')">7</button>
@@ -29,7 +29,7 @@
         <button  class="signe" onclick="appendValue('+')">+</button>
         <button  class="button-zero" onclick="appendValue('0')">0</button>
         <button onclick="appendValue('.')">.</button>
-        <button  class="result" onclick="Result()">=</button>
+        <button  class="result" onclick="showResult()">=</button>
         <script src="cal.js"></script>
     </div>
     </div>
