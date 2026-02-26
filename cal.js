@@ -22,7 +22,7 @@ function appendValue (value) {
 }
 
 document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', () => appendValue(btn.textContent));
+  btn.addEventListener('click', () => appendValue(btn.textContent))
 })
 
 function deleteLast () {
