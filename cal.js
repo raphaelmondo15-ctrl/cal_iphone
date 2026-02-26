@@ -20,6 +20,11 @@ function appendValue (value) {
 
   result.value += value
 }
+
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', () => appendValue(btn.textContent));
+})
+
 function deleteLast () {
   result.value = result.value.slice(0, -1)
 }
