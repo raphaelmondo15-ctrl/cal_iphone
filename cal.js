@@ -1,28 +1,24 @@
 const result = document.getElementById('inputtext')
 const answer = document.getElementById('output')
 
-/* ================= UI FUNCTIONS ================= */
-function appendValue(value) {
-  const operators = '+-*/';
-  const lastChar = result.value.slice(-1);
-
+function appendValue (value) {
+  const operators = '+-*/'
+  const lastChar = result.value.slice(-1)
 
   if (operators.includes(value)) {
-    if (result.value === '' && value !== '-') return;
-    if (operators.includes(lastChar) && value !== '-') return;
-    result.value += value;
-    return;
+    if (result.value === '' && value !== '-') return
+    if (operators.includes(lastChar) && value !== '-') return
+    result.value += value
+    return
   }
 
-  
   if (value === '.') {
-    const parts = result.value.split(/[+\-*/]/);
-    const lastPart = parts[parts.length - 1];
-    if (lastPart.includes('.')) return; 
+    const parts = result.value.split(/[+\-*/]/)
+    const lastPart = parts[parts.length - 1]
+    if (lastPart.includes('.')) return
   }
 
-  
-  result.value += value;
+  result.value += value
 }
 function deleteLast () {
   result.value = result.value.slice(0, -1)
@@ -32,8 +28,6 @@ function clr () {
   result.value = ''
   answer.innerText = '0'
 }
-
-/* ================= TOKENIZER ================= */
 
 function tokenize (expression) {
   const tokens = []
@@ -59,8 +53,6 @@ function tokenize (expression) {
   return tokens
 }
 
-/* ================= INFIX → POSTFIX ================= */
-
 function infixToPostfix (tokens) {
   const output = []
   const stack = []
@@ -71,7 +63,7 @@ function infixToPostfix (tokens) {
     '*': 2,
     '/': 2
   }
-for (const token of tokens) {
+  for (const token of tokens) {
     if (!isNaN(token)) {
       output.push(token)
     } else if ('+-*/'.includes(token)) {
@@ -99,8 +91,6 @@ for (const token of tokens) {
 
   return output
 }
-
-/* ================= POSTFIX EVALUATION ================= */
 
 function evaluatePostfix (postfix) {
   const stack = []
@@ -135,8 +125,6 @@ function evaluatePostfix (postfix) {
   return stack[0]
 }
 
-/* ================= MAIN CALCULATE ================= */
-
 function calculate (expression) {
   if (!expression) throw new Error('Empty')
 
@@ -152,8 +140,6 @@ function calculate (expression) {
   const postfix = infixToPostfix(tokens)
   return evaluatePostfix(postfix)
 }
-
-/* ================= RESULT ================= */
 
 function showResult () {
   try {
